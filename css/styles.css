@@ -260,29 +260,41 @@ button{
 .job-list {
   display: flex;
   margin-left: -30px;
-  position: relative;
+  
+  
 }
-.job-list .item {
+.job-item {
   flex-basis: calc(100% / 3 - 30px);
   margin-left: 30px;
+  position: relative;
+  overflow: hidden;
+
+  
 }
 
 .item-description {
   position: absolute;
-  bottom: 0;
-  display: block;
+  bottom: -70px;
   text-transform: uppercase;
   color: var(--primery-background-color);
   padding-top: 27px;
   padding-bottom: 27px;
-  width: 370px;
+  width: 100%;
+  height: 70px;
   font-weight: 700;
   font-size: 16;
   line-height: 1.17;
   background-color: rgba(47, 48, 58, 0.8);
   text-align: center;
+
+  transition: transform 250ms var(--time-function);
 }
 
+.job-item:hover .item-description{
+  transform: translateY(-70px);
+}
+
+/* ---------------------------------TEAM-------------------------------- */
 .team-background {
   background-color: var(--secondary-background-color);
 }
@@ -314,9 +326,43 @@ button{
   flex-basis: calc(100% / 4 - 30px);
   margin-left: 30px;
   padding-bottom: 30px;
+  perspective: 600px;
+  
+  
 }
-.team-container > img {
-  margin-bottom: 30px;
+
+.team-cards {
+position: relative;
+width: 270px;
+height: 260px;
+margin-bottom: 30px;
+transform-style: preserve-3d;
+transition: transform 500ms var(--time-function);
+}
+
+.team-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  backface-visibility: hidden; 
+}
+
+.team-img.back {
+  
+  width: 100%;
+  height: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 24px;
+  background-color: var(--accent-color);
+  font-size: 20px;
+  color: #fff;
+  transform: rotateY(180deg);
+}
+
+.team-cards:hover{
+  transform: rotateY(-180deg);
 }
 
 /* -----------------------социальные сети-------------------------------------------------- */
